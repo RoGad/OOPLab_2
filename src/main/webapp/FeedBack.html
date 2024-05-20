@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FeedBack - Crushed Flowers</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: 'Arial', sans-serif;
+        }
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .nav-link {
+            color: white !important;
+        }
+        .feedback-container {
+            margin-top: 50px;
+            padding: 20px;
+        }
+        .feedback-list {
+            max-height: 400px;
+            overflow-y: auto;
+            margin-bottom: 30px;
+            padding-right: 15px; /* Adjust to add space for scrollbar */
+        }
+        .feedback-list::-webkit-scrollbar {
+            width: 12px;
+        }
+        .feedback-list::-webkit-scrollbar-track {
+            background: #444;
+        }
+        .feedback-list::-webkit-scrollbar-thumb {
+            background-color: #888;
+            border-radius: 6px;
+            border: 3px solid #444;
+        }
+        .feedback-card {
+            background-color: white;
+            color: black;
+            border: none;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+        }
+        .feedback-card h5 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        .feedback-card p {
+            font-size: 1rem;
+        }
+        .container-fluid {
+            max-width: 800px;
+        }
+        footer {
+            margin-top: 50px;
+            padding: 10px;
+            text-align: center;
+            border-top: 1px solid white;
+        }
+        .feedback-form {
+            background-color: white;
+            color: black;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+        }
+        .feedback-form input, .feedback-form textarea, .feedback-form button {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-md sticky-top">
+    <div class="container-fluid">
+        <a href="#" class="navbar-brand"><img src="img/logo2.png" alt="Logo" width="50"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon" style="color: white;"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav m-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="Main">Главная</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="AboutUs">О нас</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Contacts">Контакты</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="OurWorks">Наши работы</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="FeedBack">Отзывы</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid feedback-container">
+    <div class="feedback-list">
+        <div class="feedback-card">
+            <h5>Анна Иванова</h5>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque aliquet, metus ac efficitur varius, urna ex facilisis lorem, non dapibus turpis justo at nulla.</p>
+        </div>
+        <div class="feedback-card">
+            <h5>Иван Петров</h5>
+            <p>Phasellus ac bibendum nisi. Vivamus efficitur, mauris in suscipit consequat, tortor nunc convallis est, eget commodo sapien erat vel nisl.</p>
+        </div>
+        <div class="feedback-card">
+            <h5>Ольга Сидорова</h5>
+            <p>Integer dignissim, lorem in tincidunt feugiat, turpis elit venenatis eros, ut bibendum dui magna non augue. Sed sed lorem vitae arcu dignissim ultricies.</p>
+        </div>
+        <div class="feedback-card">
+            <h5>Алексей Смирнов</h5>
+            <p>Sed euismod, metus ac elementum gravida, urna augue ultricies purus, eget sagittis leo nulla eget lectus. Donec vel efficitur metus.</p>
+        </div>
+        <div class="feedback-card">
+            <h5>Мария Кузнецова</h5>
+            <p>Nam ac dolor vel justo malesuada tempor. Nulla facilisi. Donec eu turpis vel ex vestibulum varius.</p>
+        </div>
+    </div>
+    <div class="feedback-form">
+        <h5>Добавить отзыв</h5>
+        <form id="feedbackForm">
+            <div class="mb-3">
+                <label for="name" class="form-label">Имя</label>
+                <input type="text" class="form-control" id="name" required>
+            </div>
+            <div class="mb-3">
+                <label for="message" class="form-label">Сообщение</label>
+                <textarea class="form-control" id="message" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-dark">Отправить</button>
+        </form>
+    </div>
+</div>
+
+<footer>
+    &copy; 2024 Crushed Flowers. All rights reserved.
+</footer>
+
+<script src="js/bootstrap.bundle.min.js"></script>
+<script>
+    document.getElementById('feedbackForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const name = document.getElementById('name').value;
+        const message = document.getElementById('message').value;
+
+        const feedbackList = document.querySelector('.feedback-list');
+        const newFeedback = document.createElement('div');
+        newFeedback.classList.add('feedback-card');
+        newFeedback.innerHTML = `<h5>${name}</h5><p>${message}</p>`;
+
+        feedbackList.insertBefore(newFeedback, feedbackList.firstChild);
+
+        document.getElementById('feedbackForm').reset();
+    });
+</script>
+</body>
+</html>

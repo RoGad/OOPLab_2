@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crushed Flowers</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="img">
+    <style>
+        .text {
+            font-weight: revert;
+        }
+        .overlay {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #nubexDiv {
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            position: fixed;
+            overflow: hidden;
+        }
+
+        .centered-rectangle {
+            width: 100%; /* Ширина прямоугольника */
+            height: 100%; /* Высота прямоугольника */
+            background-color: rgba(0, 0, 0, 0.7); /* Белый цвет с прозрачностью */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        #nubexVideo {
+            top: 0;
+            left: 0;
+            position: absolute;
+            width: auto;
+            height: auto;
+            min-width: 100%;
+            min-height: 100%;
+            object-fit: cover;
+        }
+        body {
+            background-color: black;
+            margin: 0;
+        }
+
+        .centered-rectangle span {
+            font-size: 24px; /* Размер текста */
+            color: white; /* Цвет текста */
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-md sticky-top">
+    <div class="container-fluid">
+        <a href="#" class="navbar-brand"><img src="img/logo2.png" alt="Logo"></a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav m-auto">
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="Main">Главная</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="AboutUs">О нас</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="Contacts">Контакты</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="OurWorks">Наши работы</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="FeedBack">Отзывы</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div id="nubexDiv" class="overlay">
+    <video id="nubexVideo" width="100%" height="auto" loop="loop" autoplay="autoplay" preload="auto" muted="muted">
+        <source src="img/video.mp4"/>
+        <source src="" type="">
+    </video>
+    <div class="centered-rectangle">
+        <span class="text">
+           Искусство в каждом кадре! Мы создаем моменты, которые невозможно забыть, с помощью уличных фотосессий по всему Омску. Crushed Flowers поможет вам подчеркнуть вашу уникальность и зафиксировать моменты счастья.
+        </span>
+    </div>
+</div>
+<script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
